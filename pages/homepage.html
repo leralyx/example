@@ -8,6 +8,7 @@
     <title>Spotify</title>
     <link rel="stylesheet" href="../assets/style/homepage.css">
     <link rel="stylesheet" href="../Fonts/Gilroy/SFUIDisplay-Semibold.ttf">
+
 </head>
 
 <body>
@@ -49,34 +50,79 @@
 
     </footer>
     <main>
-        <div class="search_and_music">
-            <div class="input_account">
-                <div class="input">
-                    <img src="../uplaod/search.svg">
-                    <input type="text" placeholder="Search by name or artist">
-                </div>
+        <div class="song">
+            <div class="search_and_music">
+                <div class="input_account">
+                    <div class="input">
+                        <img src="../uplaod/search.svg">
+                        <input type="text" placeholder="Search by name or artist">
+                    </div>
 
-                <div class="about_accout">
-                    <span class="name_user">NAme Las</span>
-                    <span class="version_account">Free user</span>
+                    <div class="about_accout">
+                        <span class="name_user">NAme Las</span>
+                        <span class="version_account">Free user</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- finish search -->
-        <div class="info_music">
+            <!-- finish search -->
+            <div class="info_music">
 
-            <div class="info_songs">
-                <h1>Selena Gomez</h1>
-                <h2>Vicio</h2>
-                <span class="time">3:11</span>
+                <div class="info_songs">
+                    <h1>Selena Gomez</h1>
+                    <h2>Vicio</h2>
+                    <span class="time">3:11</span>
+                    <div class="arrow_family">
+                        <img src="../uplaod/arrow-left.svg" alt="">
+                        <img src="../uplaod/arrow-right.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="info_songs_img"></div>
             </div>
-
-            <div class="info_songs_img"></div>
         </div>
 
         <!-- finish info_songs -->
-        <div class="musics"></div>
+
+        <div class="musics">
+            <div class="type_music">
+                <span>10 RANDOM SONGS</span>
+                <span>LIKED TRACKS</span>
+                <span>RECENTLY LISTENED</span>
+            </div>
+
+
+            <div class="type_music_songs">
+                <div class="random_songs div_children">
+                    <!-- <div class="item">
+            //         <span class="id">1</span>
+            //         <img src="../uplaod/${item.face}">
+            //         <div class="namimg">
+            //          <span class="name_of_song">${item.name_of_song}</span>
+            //          <span style="justify-content: flex-end;" class="name">${item.name}</span>
+            //         </div>
+            //         <span><img  class="love_" src="../uplaod/love.svg" alt=""></span>
+            //         <span class="duration">3:00</span>
+            //         ```
+            //     </div>` -->
+                </div>
+                <div class="liked_tracks div_children">
+                   
+                </div>
+                <div class="recently_listened div_children"></div>
+
+            </div>
+        </div>
     </main>
+    <footer>
+        <div class="the_week">
+
+        </div>
+        <div class="player">
+
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../modules/homepage.js"></script>
 </body>
 
 </html>
