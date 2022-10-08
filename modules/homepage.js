@@ -1,4 +1,6 @@
-let url = 'http://localhost:3001/'
+let url = 'http://localhost:3000/'
+
+// axios
 axios.get(url + 'about_song')
     .then(res => {
         if (res.status === 200 || res.status === 201) {
@@ -7,8 +9,11 @@ axios.get(url + 'about_song')
     })
     .catch(err => console.log(err))
 
+// 
 let random_songs = document.querySelector('.random_songs')
 let random = []
+let like_song = []
+
 for (let i = 0; i < 10; i++) {
     let le = Math.random() * 47
     le = Math.ceil(le)
@@ -18,11 +23,13 @@ for (let i = 0; i < 10; i++) {
 
 
 function songs(arr) {
-    random_songs.innerHTML = ''
+
+    // random_songs.innerHTML = ''
+
     for (let item of arr) {
         for (let item2 of random) {
             if (+item.id == item2) {
-      
+
                 let itemm = document.createElement('div')
                 let naming = document.createElement('div')
                 let id = document.createElement('span')
@@ -62,15 +69,36 @@ function songs(arr) {
                 span_add_.append(add_)
 
 
+                //////////////////////////////////////////////////////////////////////
+                love_.onclick = () => {
 
-                
+                    love_.classList.toggle('love_black')
+
+                    if (love_.classList == 'love_') {
+                        let spli = item.id
+                        like_song.find(item => like_song.splice(item.id == spli, 1))
+                    } else {
+                        like_song.push(item)
+                    }
+
+                    localStorage.setItem('like_song', JSON.stringify(like_song))
+                    let likes = JSON.parse(localStorage.getItem("like_song"))
+                }
             }
         }
-
-
-    }
-
+        
+    } 
+ 
+   
 }
+
+
+let like_songs = document.querySelector('.liked_tracks')
+
+
+
+
+
 
 
 
