@@ -35,7 +35,7 @@ function songs(arr) {
                 let id = document.createElement('span')
                 let name_of_song = document.createElement('span')
                 let name = document.createElement('span')
-                let love_ = document.createElement('img')
+                let love_ = document.createElement('p')
                 let face = document.createElement('img')
                 let duration = document.createElement('span')
                 let add_ = document.createElement('img')
@@ -53,11 +53,15 @@ function songs(arr) {
                 add_.classList.add('add_')
                 duration.classList.add('duration')
 
+
                 id.innerHTML = '1'
                 face.src = `../uplaod/${item.face}`
                 name_of_song.innerHTML = item.name_of_song
                 name.innerHTML = item.name
-                love_.src = `../uplaod/love.svg`
+                love_.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16.702" height="14.567" viewBox="0 0 16.702 14.567">
+                <path id="Icon_feather-heart" data-name="Icon feather-heart" d="M17.737,5.785a4.395,4.395,0,0,0-6.216,0l-.847.847-.847-.847A4.4,4.4,0,1,0,3.611,12l.847.847,6.216,6.216,6.216-6.216L17.737,12a4.395,4.395,0,0,0,0-6.216Z" transform="translate(-2.323 -4.497)" fill="#fff"/>
+              </svg>
+              `
                 duration.innerHTML = item.duration
                 add_.src = `../uplaod/add.png`
 
@@ -82,18 +86,27 @@ function songs(arr) {
                     }
 
                     localStorage.setItem('like_song', JSON.stringify(like_song))
-                    let likes = JSON.parse(localStorage.getItem("like_song"))
+
+                }
+                add_.onclick = () => {
+                    let dad_block_add = document.createElement("div")
+                    
                 }
             }
         }
-        
-    } 
- 
-   
+
+    }
+
+
 }
 
-
+let likes = JSON.parse(localStorage.getItem("like_song"))
 let like_songs = document.querySelector('.liked_tracks')
+
+let navige = document.querySelector('.navige')
+let child_navige = navige.children
+
+
 
 
 
