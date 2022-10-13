@@ -10,15 +10,31 @@
 </head>
 
 <body>
+    <aside></aside>
     <main>
-        <h1>SETTINGS</h1>
+        <div class="song">
+            <div class="search_and_music">
+                <div class="input_account">
+                    <div class="input">
+                        <img src="../uplaod/search.svg">
+                        <input type="text" placeholder="Search by name or artist">
+                    </div>
+
+                    <div class="about_accout">
+                        <span class="name_user">NAme Las</span>
+                        <span class="version_account">Free user</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 >SETTINGS</h1>
 
         <form name="setting" class="settings">
-            <label>Your name</label>
+            <label style="margin-bottom:10px">Your name</label>
             <input type="text">
 
             <div class="premium_transform">
-                <span>Free or Premium</span>
+                <label>Free or Premium</label>
                 <div class="change_premium">
                     <div class="button_change">
                         <div class="black_ball"></div>
@@ -32,6 +48,8 @@
         </form>
     </main>
  
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../modules/elements.js"></script>
 </body>
 
 </html>

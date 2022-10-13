@@ -12,7 +12,7 @@ axios.get(url + 'about_song')
 // 
 let random_songs = document.querySelector('.random_songs')
 let random = []
-let like_song = []
+
 
 for (let i = 0; i < 10; i++) {
     let le = Math.random() * 47
@@ -23,9 +23,10 @@ for (let i = 0; i < 10; i++) {
 
 
 function songs(arr) {
+    
 
-    // random_songs.innerHTML = ''
-
+    let like_song = []
+    random_songs.innerHTML = ''
     for (let item of arr) {
         for (let item2 of random) {
             if (+item.id == item2) {
@@ -79,32 +80,30 @@ function songs(arr) {
                     love_.classList.toggle('love_black')
 
                     if (love_.classList == 'love_') {
-                        let spli = item.id
-                        like_song.find(item => like_song.splice(item.id == spli, 1))
+                        like_song.push(item)
                     } else {
                         like_song.push(item)
                     }
 
-                    localStorage.setItem('like_song', JSON.stringify(like_song))
+                    // localStorage.setItem('like_song', JSON.stringify(like_song))
 
                 }
                 add_.onclick = () => {
                     let dad_block_add = document.createElement("div")
-                    
+
                 }
             }
         }
 
     }
 
-
+    console.log(like_song);
 }
 
-let likes = JSON.parse(localStorage.getItem("like_song"))
-let like_songs = document.querySelector('.liked_tracks')
+// let likes = JSON.parse(localStorage.getItem("like_song"))
+// let like_songs = document.querySelector('.liked_tracks')
 
-let navige = document.querySelector('.navige')
-let child_navige = navige.children
+
 
 
 
