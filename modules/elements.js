@@ -36,6 +36,7 @@ aside.innerHTML = `
 
 
 let navige = document.querySelector('.navige').children
+let name_user = document.querySelector('.name_user')
 
 console.log(navige);
 
@@ -45,3 +46,4 @@ navige[2].onclick = () => {
 navige[0].onclick = () => {
     window.location.href = '../pages/homepage.html'
 }
+name_user.innerHTML = localStorage.getItem('naming')

@@ -15,6 +15,7 @@
 body {
     display: flex;
 }
+
 aside {
     position: fixed;
     z-index: 2;
@@ -117,7 +118,7 @@ main {
     h1 {
         color: var(--color_black)
     }
-    
+
     .search_and_music {
         height: 10%;
         width: 100%;
@@ -170,7 +171,7 @@ main {
             }
         }
     }
-    
+
 
     .settings {
         display: flex;
@@ -199,7 +200,7 @@ main {
                     display: flex;
                     height: 25px;
                     width: 40px;
-                    border: solid 2px black;
+                    border: solid 2px var(--color_grey);
                     border-radius: 15px;
                     align-items: center;
                     justify-content: end;
@@ -208,20 +209,28 @@ main {
                         height: 18px;
                         width: 18px;
                         border-radius: 20px;
-                        background-color: black;
+                        background-color: var(--color_grey);
                         margin-left: 2px;
-                        margin-right: 2px;
+                        // margin-right: 2px;
                     }
+
                 }
+
+                span {
+                    color: var(--color_grey);
+                }
+
             }
         }
+
         span {
             display: block;
             display: flex;
             align-items: center;
             gap: 10px;
-            
+
         }
+
         label {
             color: var(--color_grey);
         }

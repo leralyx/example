@@ -100,9 +100,8 @@ function songs(arr) {
     console.log(like_song);
 }
 
-// let likes = JSON.parse(localStorage.getItem("like_song"))
-// let like_songs = document.querySelector('.liked_tracks')
-
+let name_user = document.querySelector('.name_user')
+name_user.innerHTML = localStorage.getItem('naming')
 
 
 

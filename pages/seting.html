@@ -12,44 +12,47 @@
 <body>
     <aside></aside>
     <main>
-        <div class="song">
-            <div class="search_and_music">
-                <div class="input_account">
-                    <div class="input">
-                        <img src="../uplaod/search.svg">
-                        <input type="text" placeholder="Search by name or artist">
-                    </div>
+        <form name="seting">
+            <div class="song">
+                <div class="search_and_music">
+                    <div class="input_account">
+                        <div class="input">
+                            <img src="../uplaod/search.svg">
+                            <input type="text" placeholder="Search by name or artist">
+                        </div>
 
-                    <div class="about_accout">
-                        <span class="name_user">NAme Las</span>
-                        <span class="version_account">Free user</span>
+                        <div class="about_accout">
+                            <span class="name_user">Name</span>
+                            <span class="version_account">Free user</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <h1 >SETTINGS</h1>
+            <h1>SETTINGS</h1>
 
-        <form name="setting" class="settings">
-            <label style="margin-bottom:10px">Your name</label>
-            <input type="text">
+            <div class="settings">
+                <label style="margin-bottom:10px">Your name</label>
+                <input type="text"  name="name">
 
-            <div class="premium_transform">
-                <label>Free or Premium</label>
-                <div class="change_premium">
-                    <div class="button_change">
-                        <div class="black_ball"></div>
+                <div class="premium_transform">
+                    <label>Free or Premium</label>
+                    <div class="change_premium">
+                        <div class="button_change">
+                            <div class="black_ball"></div>
+                        </div>
+                        <span>Premium user</span>
                     </div>
-                    <span>Premium user</span>
                 </div>
-            </div>
 
-            <span>No more settings <img src="../uplaod/cry.svg"></span>
-            <button>SAVE</button>
+                <span style="color:var(--color_grey) ;">No more settings <img src="../uplaod/cry.svg"></span>
+                <button>SAVE</button>
+            </div>
         </form>
     </main>
- 
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="../modules/elements.js"></script>
+    <script type="module" src="../modules/seting.js"></script>
 </body>
 
 </html>
