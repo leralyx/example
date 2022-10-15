@@ -1,5 +1,6 @@
 let aside = document.querySelector('aside')
 
+
 aside.innerHTML = `
 <div class="logo">
 <img src="../uplaod/logo.svg">
@@ -37,8 +38,11 @@ aside.innerHTML = `
 
 let navige = document.querySelector('.navige').children
 let name_user = document.querySelector('.name_user')
+let is_premium = false
 
-console.log(navige);
+// if()
+localStorage.getItem('is_premium')
+
 
 navige[2].onclick = () => {
     window.location.href = '../pages/seting.html'
@@ -47,3 +51,9 @@ navige[0].onclick = () => {
     window.location.href = '../pages/homepage.html'
 }
 name_user.innerHTML = localStorage.getItem('naming')
+
+
+
+
+
+

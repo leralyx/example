@@ -10,6 +10,7 @@
     --normal_account_backgound_color: #003127;
     --color_black: #FAFBFB;
     --color_grey: #8A96A3;
+    --premium_account_backgound_color:#57251C;
 }
 
 body {
@@ -203,7 +204,7 @@ main {
                     border: solid 2px var(--color_grey);
                     border-radius: 15px;
                     align-items: center;
-                    justify-content: end;
+                    justify-content: start;
 
                     .black_ball {
                         height: 18px;
@@ -211,7 +212,7 @@ main {
                         border-radius: 20px;
                         background-color: var(--color_grey);
                         margin-left: 2px;
-                        // margin-right: 2px;
+                        margin-right: 2px;
                     }
 
                 }

@@ -1,4 +1,6 @@
 let url = 'http://localhost:3000/'
+import {main} from '../modules/seting.js'
+
 
 // axios
 axios.get(url + 'about_song')
@@ -12,8 +14,7 @@ axios.get(url + 'about_song')
 // 
 let random_songs = document.querySelector('.random_songs')
 let random = []
-
-
+let like_song = []
 for (let i = 0; i < 10; i++) {
     let le = Math.random() * 47
     le = Math.ceil(le)
@@ -23,12 +24,13 @@ for (let i = 0; i < 10; i++) {
 
 
 function songs(arr) {
-    
 
-    let like_song = []
     random_songs.innerHTML = ''
+
     for (let item of arr) {
+
         for (let item2 of random) {
+
             if (+item.id == item2) {
 
                 let itemm = document.createElement('div')
@@ -61,8 +63,8 @@ function songs(arr) {
                 name.innerHTML = item.name
                 love_.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16.702" height="14.567" viewBox="0 0 16.702 14.567">
                 <path id="Icon_feather-heart" data-name="Icon feather-heart" d="M17.737,5.785a4.395,4.395,0,0,0-6.216,0l-.847.847-.847-.847A4.4,4.4,0,1,0,3.611,12l.847.847,6.216,6.216,6.216-6.216L17.737,12a4.395,4.395,0,0,0,0-6.216Z" transform="translate(-2.323 -4.497)" fill="#fff"/>
-              </svg>
-              `
+                </svg>
+                `
                 duration.innerHTML = item.duration
                 add_.src = `../uplaod/add.png`
 
@@ -75,6 +77,14 @@ function songs(arr) {
 
 
                 //////////////////////////////////////////////////////////////////////
+
+                // add_.onclick = () => {
+                //     let dad_block_add = document.createElement("div")
+
+                // }
+
+               
+
                 love_.onclick = () => {
 
                     love_.classList.toggle('love_black')
@@ -84,24 +94,22 @@ function songs(arr) {
                     } else {
                         like_song.push(item)
                     }
-
-                    // localStorage.setItem('like_song', JSON.stringify(like_song))
-
+                    localStorage.setItem('like_song', JSON.stringify(like_song))
                 }
-                add_.onclick = () => {
-                    let dad_block_add = document.createElement("div")
 
-                }
             }
         }
 
     }
-
-    console.log(like_song);
 }
+
+
 
 let name_user = document.querySelector('.name_user')
 name_user.innerHTML = localStorage.getItem('naming')
+
+let main_one = document.querySelector('main')
+
 
 
 
