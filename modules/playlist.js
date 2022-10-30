@@ -1,0 +1,1 @@
+let playlist = JSON.parse(localStorage.playlist)

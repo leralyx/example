@@ -10,28 +10,38 @@
 </head>
 
 <body>
+    <aside></aside>
     <main>
+        <!-- -------------- -->
+        <div class="song">
+            <div class="search_and_music"></div>
+        </div>
+        <!-- -------------- -->
         <h1>SETTINGS</h1>
+        <form name="seting">
+            <div class="settings">
+                <label style="margin-bottom:10px">Your name</label>
+                <input type="text" name="name">
 
-        <form name="setting" class="settings">
-            <label>Your name</label>
-            <input type="text">
-
-            <div class="premium_transform">
-                <span>Free or Premium</span>
-                <div class="change_premium">
-                    <div class="button_change">
-                        <div class="black_ball"></div>
+                <div class="premium_transform">
+                    <label>Free or Premium</label>
+                    <div class="change_premium">
+                        <div class="button_change">
+                            <div class="black_ball"></div>
+                        </div>
+                        <span>Premium user</span>
                     </div>
-                    <span>Premium user</span>
                 </div>
-            </div>
 
-            <span>No more settings <img src="../uplaod/cry.svg"></span>
-            <button>SAVE</button>
+                <span style="color:var(--color_grey) ;">No more settings <img src="../uplaod/cry.svg"></span>
+                <button>SAVE</button>
+            </div>
         </form>
     </main>
- 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../modules/elements.js"></script>
+    <script type="module" src="../modules/seting.js"></script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@
 
 <body>
     <aside>
-        <div class="logo">
+        <!-- <div class="logo">
             <img src="../uplaod/logo.svg">
         </div>
         <div class="navigation">
@@ -43,7 +43,7 @@
                 </li>
 
             </ul>
-        </div>
+        </div> -->
         <!-- finish aside -->
     </aside>
     <footer>
@@ -51,20 +51,8 @@
     </footer>
     <main>
         <div class="song">
-            
-                <div class="search_and_music">
-                    <div class="input_account">
-                        <div class="input">
-                            <img src="../uplaod/search.svg">
-                            <input type="text" placeholder="Search by name or artist">
-                        </div>
 
-                        <div class="about_accout">
-                            <span class="name_user">NAme Las</span>
-                            <span class="version_account">Free user</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="search_and_music"></div>
             <!-- finish search -->
             <div class="info_music">
 
@@ -83,7 +71,6 @@
         </div>
 
         <!-- finish info_songs -->
-
         <div class="musics">
             <div class="type_music">
                 <span>10 RANDOM SONGS </span>
@@ -94,17 +81,6 @@
 
             <div class="type_music_songs">
                 <div class="random_songs div_children">
-                    <!-- <div class="item">
-            //         <span class="id">1</span>
-            //         <img src="../uplaod/${item.face}">
-            //         <div class="namimg">
-            //          <span class="name_of_song">${item.name_of_song}</span>
-            //          <span style="justify-content: flex-end;" class="name">${item.name}</span>
-            //         </div>
-            //         <span><img  class="love_" src="../uplaod/love.svg" alt=""></span>
-            //         <span class="duration">3:00</span>
-            //         ```
-            //     </div>` -->
                 </div>
                 <div class="liked_tracks div_children">
                     <div class="dad_block_add">
@@ -120,14 +96,41 @@
     </main>
     <footer>
         <div class="the_week">
-
+            <span class="week">The Weekend</span>
+            <span class="nom">Starboy</span>
         </div>
         <div class="player">
-
+            <div class="instrument">
+                <img src="../uplaod/repeat.svg" class="repeat">
+                <img src="../uplaod/track-next.svg" class="track-next">
+                <img src="../uplaod/play.svg" class="play">
+                <img src="../uplaod/track-prev.svg" class="track-prev">
+                <img src="../uplaod/random.svg" class="randomimg">
+            </div>
+            <div class="time_and_other">
+                <div class="dada_time">
+                    <div class="time"></div>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <div class="modals">
+        <p class="X">X</p>
+        <h1>Add to playlist</h1>
+        <div class="list">
+
+        </div>
+        <p class="create">Create new playlist</p>
+        <form name="create">
+            <input type="text" name="name" placeholder="Name of playlst">
+            <button>Save</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="../modules/homepage.js"></script>
+    <script type="module" src="../modules/elements.js"></script>
 </body>
 
 </html>
