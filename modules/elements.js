@@ -40,16 +40,128 @@ let navige = document.querySelector('.navige').children
 let name_user = document.querySelector('.name_user')
 let is_premium = false
 
-// if()
-localStorage.getItem('is_premium')
+let name_person = 'No one'
 
-navige[0].onclick = () => {
-    window.location.href = '../pages/homepage.html'
+let isPremium;
+
+if (!localStorage.isPremium || localStorage.isPremium == 'undefined') localStorage.isPremium = false
+else isPremium = JSON.parse(localStorage.isPremium)
+
+if (!localStorage.name) localStorage.name = "Alex"
+else name_person = localStorage.name
+
+navige[2].onclick = () => window.location.href = '../pages/seting.html'
+navige[1].onclick = () => window.location.href = '../pages/playlist.html'
+navige[0].onclick = () => window.location.href = '../pages/homepage.html'
+
+
+let main = document.querySelector('main')
+
+if (isPremium) main.style.background = ' linear-gradient(var(--premium_account_backgound_color), black)'
+else main.style.background = ' linear-gradient(var(--normal_account_backgound_color), black)'
+
+
+
+let search_side = document.querySelector('.search_and_music')
+
+search_side.innerHTML = `
+                    <div class="input_account">
+                        <div class="input">
+                            <img src="../uplaod/search.svg">
+                            <input type="text" class="search_" placeholder="Search by name or artist">
+                        </div>
+
+                        <div class="about_accout">
+                            <span class="name_user">${name_person}</span>
+                            <span class="version_account">Free user</span>
+                        </div>
+                    </div>
+`
+
+let input_type = document.querySelector('.search_')
+
+input_type.onkeyup = () => {
+    console.log(event.target.value);
 }
-navige[2].onclick = () => {
-    window.location.href = '../pages/seting.html'
+
+let playlist_db = [] || JSON.parse(localStorage.playlist)
+
+axios.get(url + 'playlist')
+    .then(res => {
+        if (res.status === 200 || res.status === 201) {
+            playlist_db = res.data
+            localStorage.playlist = res.data
+            create(playlist_db)
+        }
+    })
+    .catch(err => console.log(err))
+
+let create_form = document.forms.create
+
+create_form.onsubmit = () => {
+    event.preventDefault()
+
+    let obj = {
+        id: Math.random().toString().slice(3),
+        arr: []
+    }
+
+    let fm = new FormData(create_form)
+
+    fm.forEach((val, key) => {
+        obj[key] = val
+    })
+
+    playlist_db.push(obj)
+    localStorage.playlist = JSON.stringify(playlist_db)
+    create(playlist_db)
 }
-name_user.innerHTML = localStorage.getItem('naming')
+
+const create = (arr) => {
+    let list = document.querySelector('.list')
+    list.innerHTML = ''
+
+    for (let item of arr) {
+        let div = document.createElement('div')
+
+        div.classList.add('item')
+        div.innerHTML = `<div class="name">${item.name}</div><div class="num_of_song">${item.arr.length}</div>`
+        div.onclick = () => {
+            let track = JSON.parse(localStorage.track)
+            item.arr.push(track)
+            localStorage.playlist = JSON.stringify(arr)
+        }
+        list.append(div)
+    }
+}
+
+
+let footer = document.querySelector('footer')
+
+footer.innerHTML = `
+<footer>
+<div class="the_week">
+    <span class="week">The Weekend</span>
+    <span class="nom">Starboy</span>
+</div>
+<div class="player">
+    <div class="instrument">
+        <img src="../uplaod/repeat.svg" class="repeat">
+        <img src="../uplaod/track-next.svg" class="track-next">
+        <img src="../uplaod/play.svg" class="play">
+        <img src="../uplaod/track-prev.svg" class="track-prev">
+        <img src="../uplaod/random.svg" class="randomimg">
+    </div>
+    <div class="time_and_other">
+        <div class="dada_time">
+            <div class="time"></div>
+        </div>
+    </div>
+</div>
+</footer>`
+
+
+
 
 
 
