@@ -12,7 +12,6 @@
 <body>
     <aside></aside>
     <main>
-        <!-- -------------- -->
         <div class="song">
             <div class="search_and_music"></div>
         </div>
@@ -35,8 +34,45 @@
 
                 <span style="color:var(--color_grey) ;">No more settings <img src="../uplaod/cry.svg"></span>
                 <button>SAVE</button>
+
+        <form name="search_song">
+            <div class="song">
+                <div class="search_and_music">
+                    <div class="input_account">
+                        <div class="input">
+                            <img src="../uplaod/search.svg">
+                            <input type="text" placeholder="Search by name or artist">
+                        </div>
+
+                        <div class="about_accout">
+                            <span class="name_user">Name</span>
+                            <span class="version_account">Free user</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </form>
+            <h1>SETTINGS</h1>
+            <form name="seting">
+                <div class="settings">
+                    <label style="margin-bottom:10px">Your name</label>
+                    <input type="text" name="name">
+
+                    <div class="premium_transform">
+                        <label>Free or Premium</label>
+                        <div class="change_premium">
+                            <div class="button_change">
+                                <div class="black_ball"></div>
+                            </div>
+                            <span>Premium user</span>
+                        </div>
+                    </div>
+
+                    <span style="color:var(--color_grey) ;">No more settings <img src="../uplaod/cry.svg"></span>
+                    <button>SAVE</button>
+                </div>
+            </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
