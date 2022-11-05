@@ -1,13 +1,11 @@
 let url = 'http://localhost:3000/'
-let db = [] || JSON.parse(localStorage.playlist)
-
+let db = []
 
 // axios
 axios.get(url + 'about_song')
     .then(res => {
         if (res.status === 200 || res.status === 201) {
-            if (localStorage.arr) songs(db)
-            else songs(res.data)
+         songs(res.data)
         }
       
     })
@@ -26,27 +24,19 @@ for (let i = 0; i < 10; i++) {
 function songs(arr) {
     random_songs.innerHTML = ''
     like_song.innerHTML = ''
-
     for (let item of arr) {
         for (let item2 of random) {
             if (+item.id == item2) is_spawn(item, random_songs)
         }
-
-        if (!item.like) item.like = false
-        else is_spawn(item, like_song)
-
+        if (!item.like){
+            item.like = false
+        } else {
+            is_spawn(item, like_song)
+        }
+        
+        
     }
 }
-let num = 1
-setInterval(() => {
-    num++
-    if (num === 101) {
-        num = 1
-    }
-    let time = document.querySelector('.time')
-    time.style.width = `${num}%`
-
-}, 1000)
 
 let is_spawn = (item, param) => {
     let itemm = document.createElement('div')
@@ -60,7 +50,7 @@ let is_spawn = (item, param) => {
     let add_ = document.createElement('img')
     let span_love_ = document.createElement('span')
     let span_add_ = document.createElement('span')
-
+    
     // class
     itemm.classList.add('item')
     id.classList.add('id')
@@ -70,31 +60,36 @@ let is_spawn = (item, param) => {
     love_.classList.add('love_')
     add_.classList.add('add_')
     duration.classList.add('duration')
-
-
-    // add_.onclick = () => {
-    //     let modals =  document.querySelector('.modals')
-    //     modals.classList.add('active')
-    //     localStorage.track = JSON.stringify(item) 
-    // }
-    // closes.onclick = () => {
-    //     let closes = document.querySelector('.X')
-    //     modals.classList.remove('active')
-    // }
-
+    
+    let modals =  document.querySelector('.modals')
+    let closes = document.querySelector('.X')
+    
+    
+    add_.onclick = () => {  
+        modals.classList.add('active')
+        localStorage.track = JSON.stringify(item) 
+    }
+    closes.onclick = () =>{
+        modals.classList.remove('active')
+    }
+    
     id.innerHTML = '1'
     face.src = `../uplaod/${item.face}`
     name_of_song.innerHTML = item.name_of_song
     name.innerHTML = item.name
     love_.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16.702" height="14.567" viewBox="0 0 16.702 14.567"><path id="Icon_feather-heart" data-name="Icon feather-heart" d="M17.737,5.785a4.395,4.395,0,0,0-6.216,0l-.847.847-.847-.847A4.4,4.4,0,1,0,3.611,12l.847.847,6.216,6.216,6.216-6.216L17.737,12a4.395,4.395,0,0,0,0-6.216Z" transform="translate(-2.323 -4.497)" fill="#fff"/></svg>
-                `
+    `
     duration.innerHTML = item.duration
     add_.src = `../uplaod/add.png`
-
+    
+   
     love_.onclick = () => {
+
         item.like = !item.like
-        if (item.like) like_song.append(itemm)
+        if (item.like) like_song.append(itemm) 
+        arr.push(item)
         localStorage.arr = JSON.stringify(arr)
+        
         songs(arr)
     }
 
@@ -106,3 +101,13 @@ let is_spawn = (item, param) => {
 
 }
 
+let num = 1
+setInterval(() => {
+    num++
+    if (num === 101) {
+        num = 1
+    }
+    let time = document.querySelector('.time')
+    time.style.width = `${num}%`
+
+}, 1000)

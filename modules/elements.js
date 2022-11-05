@@ -1,39 +1,42 @@
 let url = 'http://localhost:3000/'
 
-let aside = document.querySelector('aside')
-aside.innerHTML = `
-<div class="logo">
-<img src="../uplaod/logo.svg">
-</div>
-<div class="navigation">
-<span>NAVIGATION</span>
-<ul class="navige">
-    <li>Homepage</li>
-    <li>Playlist</li>
-    <li>Settings</li>
-</ul>
-</div>
-<div class="playlists">
-<span>PLAYISTS</span>
-<ul>
-    <li>La vie</li>
-</ul>
-</div>
-<div class="liked-songs">
-<span>LIKED SONGS</span>
-<ul>
-    <li>
-        <div class="song_name ">
-            <span>DJAJA</span>
-        </div>
-        <div class="song_duration">
-            <span>3:11</span>
-        </div>
-    </li>
 
-</ul>
-</div>
-`
+    let aside = document.querySelector('aside')
+
+        aside.innerHTML = `
+        <div class="logo">
+        <img src="../uplaod/logo.svg">
+        </div>
+        <div class="navigation">
+        <span>NAVIGATION</span>
+        <ul class="navige">
+            <li>Homepage</li>
+            <li>Playlist</li>
+            <li>Settings</li>
+        </ul>
+        </div>
+        <div class="playlists">
+        <span>PLAYISTS</span>
+        <ul>
+            <li></li>
+        </ul>
+        </div>
+        <div class="liked-songs">
+        <span>LIKED SONGS</span>
+        <ul>
+            <li>
+                <div class="song_name ">
+                    <span>DJAJA</span>
+                </div>
+                <div class="song_duration">
+                    <span>3:11</span>
+                </div>
+            </li>
+        
+        </ul>
+        </div>
+        `
+
 
 
 let navige = document.querySelector('.navige').children
@@ -85,6 +88,7 @@ input_type.onkeyup = () => {
 }
 
 let playlist_db = [] || JSON.parse(localStorage.playlist)
+let track = JSON.parse(localStorage.track)
 
 axios.get(url + 'playlist')
     .then(res => {
@@ -95,6 +99,7 @@ axios.get(url + 'playlist')
         }
     })
     .catch(err => console.log(err))
+
 
 let create_form = document.forms.create
 
@@ -112,12 +117,15 @@ create_form.onsubmit = () => {
         obj[key] = val
     })
 
+
     playlist_db.push(obj)
     localStorage.playlist = JSON.stringify(playlist_db)
+    axios.post(url + 'playlist', obj)
     create(playlist_db)
 }
-
 const create = (arr) => {
+
+    
     let list = document.querySelector('.list')
     list.innerHTML = ''
 
@@ -129,11 +137,13 @@ const create = (arr) => {
         div.onclick = () => {
             let track = JSON.parse(localStorage.track)
             item.arr.push(track)
-            localStorage.playlist = JSON.stringify(arr)
         }
         list.append(div)
+    
     }
 }
+
+
 
 
 let footer = document.querySelector('footer')
@@ -168,3 +178,9 @@ footer.innerHTML = `
 
 
 
+//    love_.onclick = () => {
+//     item.like = !item.like
+//     if (item.like) like_song.append(itemm)
+//     localStorage.arr = JSON.stringify(arr)
+//     songs(arr)
+// }

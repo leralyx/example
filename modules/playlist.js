@@ -1,3 +1,11 @@
-let url = `http://localhost:3000`
+axios.get(url + 'playlist')
+    .then( res =>{
+        if (res.status === 200 || res.status === 201) {
+            playlists(res.data)
+           }
+    })
+.catch (err => console.log(err))
 
-axios.get(url + '/playlist')
+function playlists (arr) {
+    
+}
