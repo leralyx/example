@@ -87,19 +87,17 @@ input_type.onkeyup = () => {
     console.log(event.target.value);
 }
 
-let playlist_db = [] || JSON.parse(localStorage.playlist)
+let playlist_db = []  || JSON.parse(localStorage.playlist)
 let track = JSON.parse(localStorage.track)
 
 axios.get(url + 'playlist')
     .then(res => {
         if (res.status === 200 || res.status === 201) {
             playlist_db = res.data
-            localStorage.playlist = res.data
             create(playlist_db)
         }
     })
     .catch(err => console.log(err))
-
 
 let create_form = document.forms.create
 
@@ -119,8 +117,8 @@ create_form.onsubmit = () => {
 
 
     playlist_db.push(obj)
-    localStorage.playlist = JSON.stringify(playlist_db)
     axios.post(url + 'playlist', obj)
+    localStorage.playlist = JSON.stringify(playlist_db)
     create(playlist_db)
 }
 const create = (arr) => {
@@ -136,8 +134,11 @@ const create = (arr) => {
         div.innerHTML = `<div class="name">${item.name}</div><div class="num_of_song">${item.arr.length}</div>`
         div.onclick = () => {
             let track = JSON.parse(localStorage.track)
-            item.arr.push(track)
+            item.arr.push(track)    
+            playlist_db = arr
+            localStorage.playlist = JSON.stringify(arr)
         }
+        
         list.append(div)
     
     }

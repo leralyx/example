@@ -10,7 +10,7 @@
     --normal_account_backgound_color: #003127;
     --color_black: #FAFBFB;
     --color_grey: #8A96A3;
-    --premium_account_backgound_color:#57251C;
+    --premium_account_backgound_color: #57251C;
 }
 
 body {
@@ -113,7 +113,6 @@ main {
     top: 0;
     right: 0;
     position: absolute;
-    height: 100%;
     background: linear-gradient(var(--normal_account_backgound_color), black);
     padding: 20px 100px 20px 60px;
 
@@ -121,7 +120,10 @@ main {
         color: var(--color_black)
     }
 
+  
+
     .search_and_music {
+
         height: 10%;
         width: 100%;
 
@@ -172,5 +174,92 @@ main {
                 }
             }
         }
+    }
+
+    .dada {
+        width: 100%;
+        margin: 0 auto;
+        background-color: #02CAA3;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        height: 600px;
+ 
+        .item {
+            z-index: 4;
+            width: 370px;
+            height: 400px;
+            background-color: #8A96A3;
+            border-radius: 20px;
+            overflow-y: scroll;
+            
+
+            .title{
+              display: flex;
+              justify-content: center; 
+              font-size: 25px;
+              font-weight: 600;
+              width: 350px;
+              background-color: #57251C;
+              
+            }
+            .songs{
+                height: 100%;
+                width: 100%;
+                background-color: #265249;
+                margin:20px auto 0px auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .song {
+                display: flex;
+                height: 60px;
+                background-color: #57251C;
+                align-items: center;
+                gap: 10px;
+                .index{
+                
+                }
+                img{
+                 height: 30px;
+                }
+                .naming{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    height: 40px;
+                    width: 240px;
+                    background-color: #b9b4b3;
+
+                    .name_of_song{
+
+                    }
+                    .name_of_famous{
+                        
+                    }
+                }
+                .duration{
+
+                }
+            }
+        }
+        .item::-webkit-scrollbar {
+            width: 10px;
+          }
+          
+          /* Track */
+          .item::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+          }
+           
+          /* Handle */
+          .item::-webkit-scrollbar-thumb {
+            background: #888; 
+          }
+          
+        
+      
     }
 }
